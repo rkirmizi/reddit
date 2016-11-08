@@ -224,7 +224,8 @@ class DomainMiddleware(object):
 
             start_response("301 Moved Permanently", [("Location", redir)])
             return [""]
-
+        # rkirmizi
+        # environ['reddit-prefer-lang'] = 'ar'
         return self.app(environ, start_response)
 
 

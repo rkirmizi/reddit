@@ -30,4 +30,12 @@ class NullEmailProvider(EmailProvider):
 
     def send_email(self, to_address, from_address, subject, text, reply_to,
                        parent_email_id=None, other_email_ids=None):
-        return None
+        from sparkpost import SparkPost
+        sp = SparkPost('fb977504a3821f9edb6d1c7ecdb2d7514a923c97')
+        response = sp.transmissions.send(
+            recipients=to_address,
+            html=text,
+            from_email=from_address,
+            subject=subject
+        )
+        return response

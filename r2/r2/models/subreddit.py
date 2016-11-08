@@ -51,7 +51,7 @@ from account import (
 from printable import Printable
 from r2.lib.db.userrel import UserRel, MigratingUserRel
 from r2.lib.db.operators import lower, or_, and_, not_, desc
-from r2.lib.errors import RedditError
+from r2.lib.errors import RedditError, AdminRequiredException
 from r2.lib.geoip import get_request_location
 from r2.lib.memoize import memoize
 from r2.lib.permissions import ModeratorPermissionSet
@@ -365,6 +365,9 @@ class Subreddit(Thing, Printable, BaseSite):
     @classmethod
     def _new(cls, name, title, author_id, ip, lang = g.lang, type = 'public',
              over_18 = False, **kw):
+        if not c.user_is_admin:
+            raise AdminRequiredException("Only Admin's can create subreddits.")
+
         if not cls.is_valid_name(name):
             raise ValueError("bad subreddit name")
         with g.make_lock("create_sr", 'create_sr_' + name.lower()):
@@ -387,6 +390,7 @@ class Subreddit(Thing, Printable, BaseSite):
                 #clear cache
                 Subreddit._by_name(name, _update = True)
                 return sr
+
 
     @classmethod
     def is_valid_name(cls, name, allow_language_srs=False, allow_time_srs=False,

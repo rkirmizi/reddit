@@ -52,6 +52,7 @@ from r2.lib.validator import (
     VSRByName,
     VUser,
     VValidatedJSON,
+    VAdmin,
 )
 from r2.lib.pages.things import wrap_things
 from r2.lib.jsontemplates import (

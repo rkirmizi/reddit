@@ -89,6 +89,7 @@ setup(
         "python-snappy",
         "httpagentparser==1.7.8",
         "raven",
+        "sparkpost"
     ],
     # setup tests (allowing for "python setup.py test")
     tests_require=['mock', 'nose', 'coverage'],
@@ -137,5 +138,6 @@ setup(
     [r2.provider.email]
     null = r2.lib.providers.email.null:NullEmailProvider
     mailgun = r2.lib.providers.email.mailgun:MailgunEmailProvider
+    sparkpost = r2.lib.providers.email.sp:SparkPostEmailProvider
     """,
 )

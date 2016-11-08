@@ -121,6 +121,9 @@ def handle_register(
     elif responder.has_errors('email', errors.BAD_EMAIL):
         _event(error='BAD_EMAIL')
 
+    elif responder.has_errors('email', errors.NO_EMAIL):
+        _event(error='NO_EMAIL')
+
     elif responder.has_errors('passwd', errors.SHORT_PASSWORD):
         _event(error='SHORT_PASSWORD')
 

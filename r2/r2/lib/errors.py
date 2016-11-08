@@ -332,5 +332,8 @@ class VerifiedUserRequiredException(RedditError):
     name = errors.VERIFIED_USER_REQUIRED
     code = 403
 
+class AdminRequiredException(RedditError):
+    name = errors.ADMIN_REQUIRED
+    code = 403
 
 class MessageError(Exception): pass

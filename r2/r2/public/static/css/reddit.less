@@ -252,8 +252,8 @@ ul.flat-vert {text-align: left;}
 .pref-lang { font-weight: bold; }
 .pref { font-weight: bold; }
 
-#jumpToContent { position: absolute; left: 135px; top: 25px; font-weight: bold; margin-left: -1000px;}
-#jumpToContent:focus { margin-left: 0 !important; }
+#jumpToContent { position: absolute; right: 135px; top: 25px; font-weight: bold; margin-right: -1000px;}
+#jumpToContent:focus { margin-right: 0 !important; }
 
 #header {
 
@@ -268,7 +268,7 @@ ul.flat-vert {text-align: left;}
 
 #header-img.default-header {
     text-indent: -9999px;
-    background-image: url(../reddit.com.header.png); /* SPRITE */
+    //background-image: url(../reddit.com.header.png); /* SPRITE */
     height: 40px;
     width: 120px;
     display: inline-block;
@@ -287,7 +287,7 @@ ul.flat-vert {text-align: left;}
 
 #header-bottom-right {
     position: absolute;
-    right: 0px;
+    left: 0px;
     bottom: 0px;
     background-color: #EFF7FF;
     padding: 4px;
@@ -493,7 +493,7 @@ ul.flat-vert {text-align: left;}
 /* side box menus */
 
 .side {
-    float: right; 
+    float: left;
     background-color: white; 
     margin: 0px 5px 0 5px;
     width: 300px;
@@ -788,7 +788,7 @@ ul.flat-vert {text-align: left;}
 }
 
 .midcol {
-    float: left; 
+    float: right;
     margin-right: 7px;
     margin-left: 7px; 
     background: transparent; 
@@ -804,6 +804,7 @@ body > .content .link.compressed .midcol {
     overflow: hidden; 
     margin-left: 3px;
     opacity: 1;
+    min-height: 70px; //bro buraya % vermek olur mu?
 }
 .domain { color: #888; font-size:x-small; white-space: nowrap; }
 .domain a {
@@ -1625,10 +1626,10 @@ body.with-listing-chooser.explore-page #header .pagename {
     text-indent: 50px;
 }
 .organic-listing .nextprev .arrow.prev {
-    background-image: url(../prev_organic.png); /* SPRITE */
+    background-image: url(../next_organic.png); /* SPRITE */
 }
 .organic-listing .nextprev .arrow.next {
-    background-image: url(../next_organic.png); /* SPRITE */
+    background-image: url(../prev_organic.png); /* SPRITE */
 }
 .organic-listing .nextprev .arrow:hover {
     cursor: pointer;
@@ -1747,10 +1748,10 @@ body.with-listing-chooser.explore-page #header .pagename {
     font-size: larger;
 }
 
-.menuarea .spacer {display: inline; margin-right: 15px}
+.menuarea .spacer {display: inline; margin-left: 15px}
 
 .panestack-title {
-    margin: 10px 310px 0px 10px;
+    margin: 10px 30px 0px 310px;
     padding-bottom: 3px;
     border-bottom: 1px dotted gray;
 }
@@ -1763,7 +1764,7 @@ body.with-listing-chooser.explore-page #header .pagename {
 
 .panestack-title a.title-button {
     font-size: 12px;
-    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .panestack-title a.title-button.gold {
@@ -1776,7 +1777,7 @@ body.with-listing-chooser.explore-page #header .pagename {
 
 .commentarea .menuarea {
     border: none;
-    margin: 0 310px 10px 10px;
+    margin: 0 10px 10px 310px;
     padding: 0;
     color: gray;
 
@@ -1794,7 +1795,7 @@ body.with-listing-chooser.explore-page #header .pagename {
 }
 
 .commentarea > .usertext {
-    margin: 0 0 10px 10px;
+    margin: 0 30px 10px 0;
     overflow: auto;
 }
 
@@ -2075,8 +2076,9 @@ a.star { text-decoration: none; color: #ff8b60 }
 .link .score.likes   { color: #FF8B60; }
 .link .score.dislikes { color: #9494FF; }
 .link .rank {
-    float:left;
+    float:right;
     margin-top: 15px;
+    margin-right: 20px;
     color: #c6c6c6;
     font-family: arial;
     font-size: medium;
@@ -2167,7 +2169,7 @@ a.star { text-decoration: none; color: #ff8b60 }
 
 /* comments */
 
-.comment, .content .details { margin-left: 10px; }
+.comment, .content .details { margin-right: 15px; }
 
 .comment.noncollapsed {
     .numchildren {
@@ -2237,7 +2239,7 @@ body.show-controversial .comment.controversial > .entry .score:after {
 
 .comment {
     .midcol {
-        margin-left: 0px;
+        margin-right: 20px;
         width: 15px;
     }
 
@@ -2257,8 +2259,8 @@ body.show-controversial .comment.controversial > .entry .score:after {
 
     .child, .showreplies {
         margin-top: 10px; 
-        margin-left: 15px; 
-        border-left: 1px dotted #DDF;
+        margin-right: 15px;
+        border-right: 1px dotted #DDF;
     }
 
     &.collapsed-for-reason {
@@ -2691,7 +2693,7 @@ textarea.gray { color: gray; }
 }
 
 .fixedwidth { float: left; width: 100px; height: 0px; }
-.clearleft { clear: left; height: 0px; }
+.clearleft { clear: right; height: 0px; }
 .clear { clear: both; }
 
 .sharetable.preftable {margin-left: 20px; }
@@ -3128,7 +3130,7 @@ label + #moresearchinfo {
 
 
 .searchpane {
-    margin: 5px 305px 5px 0px;
+    margin: 5px 0px 5px 305px;
     padding-left: 96px;
     background: #E0E0E0 url(../search-large.png) 26px center no-repeat;
 } 
@@ -4571,10 +4573,10 @@ form input[type=radio] {margin: 2px .5em 0 0; }
 .stats td.ri { padding-left: 20px; text-align: right}
 
 .thumbnail {
-    float: left; 
+    float: right;
     font-size: 0;
     margin: 0;
-    margin-right: 5px;
+    margin-left: 5px;
     margin-bottom: 2px;
     overflow: hidden;
     width: 70px; 
@@ -4813,7 +4815,7 @@ ul#image-preview-list .description pre {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 0 5px 0 15px;
+    //padding: 0 5px 0 15px;
     font-weight: bold;
     margin: 0;
 }
@@ -5031,7 +5033,7 @@ ul.tabmenu.formtab {
     position: relative;
 
     .form-bar {
-        float: left;
+        float: right;
     }
 }
 
@@ -5164,10 +5166,10 @@ ul.tabmenu.formtab {
 }
 
 .expando-button {
-    float: left;
+    float: right;
     height: 23px;
     width: 23px;
-    margin: 2px 5px 2px 0;
+    margin: 2px 2px 5px 0;
     background: white none no-repeat scroll center center;
 }
 
@@ -9387,7 +9389,7 @@ form#banned textarea {
 
 .sr-interest-bar {
     position: relative;
-    background: #cee3f8 url(../snoo-upside-down.png) 15px top no-repeat;
+    background: #cee3f8 ;
     padding: 5px;
     overflow: hidden;
     border: 1px solid #336699;
@@ -9945,20 +9947,20 @@ body.with-listing-chooser {
     & #header .pagename {
         position: absolute;
         bottom: 20px;
-        margin-left: @lc-grippy-width + 2px;
+        margin-right: @lc-grippy-width + 2px;
     }
 
     & > .content, & .footer-parent {
-        margin-left: 140px + @lc-grippy-width;
+        margin-right: 140px + @lc-grippy-width;
     }
 
     .listing-chooser {
         position: absolute;
         top: 65px;
-        left: 0;
+        right: 0;
         bottom: 0;
         width: @lc-width;
-        padding-right: @lc-grippy-width + @grippy-fudge;
+        padding-left: @lc-grippy-width + @grippy-fudge;
         background: #f7f7f7;
         overflow: hidden;
 
@@ -9974,7 +9976,7 @@ body.with-listing-chooser {
 
         .grippy {
             position: absolute;
-            right: 0;
+            left: 0;
             width: @lc-grippy-width + @grippy-fudge;
             height: 100%;
             background: white;
@@ -10028,20 +10030,20 @@ body.with-listing-chooser {
         @lc-grippy-width: 9px;
 
         & #header .tabmenu {
-            margin-left: 0;
+            margin-right: 0;
         }
 
         & #header .pagename {
-            margin-left: 2px;
+            margin-right: 2px;
         }
 
         & > .content, & .footer-parent {
-            margin-left: @lc-grippy-width + 6px;
+            margin-right: @lc-grippy-width + 6px;
         }
 
         .listing-chooser {
             width: 0;
-            padding-right: @lc-grippy-width + @grippy-fudge;
+            padding-left: @lc-grippy-width + @grippy-fudge;
             z-index: -1;
 
             .grippy {
@@ -10051,12 +10053,12 @@ body.with-listing-chooser {
                 &:before {
                     background-image: url(../sidebar-grippy-show.png);
                     background-position: ((@lc-grippy-width - @grippy-image-width) / 2 + 1) center;
-                    margin-left: (@lc-grippy-width - @grippy-image-width) / 2;
+                    margin-right: (@lc-grippy-width - @grippy-image-width) / 2;
                     width: @lc-grippy-width;
                 }
 
                 &:after {
-                    right: @grippy-fudge - 1;
+                    left: @grippy-fudge - 1;
                     width: @lc-grippy-width;
                     border-right: 1px solid #ccc;
                 }
@@ -10068,7 +10070,7 @@ body.with-listing-chooser {
 .listing-chooser {
     h3 {
         color: #777;
-        text-align: right;
+        text-align: left;
         padding: 4px;
     }
 
@@ -10085,7 +10087,7 @@ body.with-listing-chooser {
         p {
             font-size: 1.15em;
             margin: 4px;
-            margin-left: 8px;
+            margin-right: 8px;
         }
 
         ul.multis {
@@ -10096,12 +10098,12 @@ body.with-listing-chooser {
     ul.global, ul.other {
         padding: 8px 0;
         li {
-            margin-left: 4px;
+            margin-right: 4px;
 
             a {
                 font-size: 1.3em;
                 padding: 1em 5px;
-                padding-left: 12px;
+                padding-right: 12px;
             }
         }
     }
@@ -10112,17 +10114,17 @@ body.with-listing-chooser {
 
     ul.multis {
         li {
-            margin-left: 12px;
+            margin-right: 12px;
             .transition(all, 0.15s);
 
             &:hover {
-                margin-left: 9px;
+                margin-right: 9px;
             }
 
             a {
                 font-size: 1.2em;
                 padding: .8em 5px;
-                padding-left: 10px;
+                padding-right: 10px;
             }
         }
     }
@@ -10133,16 +10135,16 @@ body.with-listing-chooser {
         background: #fff;
         border: 1px solid #ccc;
         border-bottom-width: 2px;
-        border-right: none;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
+        border-left: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
 
         a {
             display: block;
             position: relative;
             overflow: hidden;
             text-overflow: ellipsis;
-            margin-right: 5px;
+            margin-left: 5px;
 
             .description {
                 color: gray;
@@ -10162,7 +10164,7 @@ body.with-listing-chooser {
             border-color: lighten(#369, 40%);
             margin-right: -@lc-grippy-width;
             padding-right: @lc-grippy-width;
-            box-shadow: -30px 0 30px -15px rgba(255, 255, 255, .5) inset,
+            box-shadow: -30px -15px 30px 0 rgba(255, 255, 255, .5) inset,
                         0 2px @lc-shadow-width -1px rgba(0, 0, 0, .2);
             z-index: 35;
 
@@ -10174,7 +10176,7 @@ body.with-listing-chooser {
                 @size: 5px;
                 position: absolute;
                 top: 50%;
-                right: 0;
+                left: 0;
                 margin-top: -@size;
                 display: block;
                 content: '';
@@ -10194,7 +10196,7 @@ body.with-listing-chooser {
                 border-color: lighten(#c4b487, 6%);
 
                 &:before {
-                    border-left-color: lighten(#9a7d2e, 15%);
+                    border-right-color: lighten(#9a7d2e, 15%);
                 }
             }
         }

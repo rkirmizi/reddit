@@ -54,7 +54,7 @@ from r2.lib.utils import constant_time_compare
 from r2.lib.require import require, require_split, RequirementException
 from r2.lib import signing
 
-from r2.lib.errors import errors, RedditError, UserRequiredException
+from r2.lib.errors import errors, RedditError, UserRequiredException, AdminRequiredException
 from r2.lib.errors import VerifiedUserRequiredException
 
 from copy import copy

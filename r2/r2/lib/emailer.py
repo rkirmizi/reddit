@@ -36,6 +36,7 @@ from r2.config import feature
 from r2.lib import hooks
 from r2.lib.ratelimit import SimpleRateLimit
 from r2.lib.utils import timeago
+from r2.lib.providers.email.sp import SparkPostEmailProvider
 from r2.models import Comment, Email, DefaultSR, Account, Award
 from r2.models.token import EmailVerificationToken, PasswordResetToken
 
@@ -254,29 +255,6 @@ def send_queued_mail(test = False):
         c.site = DefaultSR()
 
     clear = False
-    if not test:
-        session = smtplib.SMTP(g.smtp_server)
-    def sendmail(email):
-        try:
-            mimetext = email.to_MIMEText()
-            if mimetext is None:
-                print ("Got None mimetext for email from %r and to %r"
-                       % (email.fr_addr, email.to_addr))
-            if test:
-                print mimetext.as_string()
-            else:
-                session.sendmail(email.fr_addr, email.to_addr,
-                                 mimetext.as_string())
-                email.set_sent(rejected = False)
-        # exception happens only for local recipient that doesn't exist
-        except (smtplib.SMTPRecipientsRefused, smtplib.SMTPSenderRefused,
-                UnicodeDecodeError, AttributeError, HeaderParseError):
-            # handle error and print, but don't stall the rest of the queue
-            print "Handled error sending mail (traceback to follow)"
-            traceback.print_exc(file = sys.stdout)
-            email.set_sent(rejected = True)
-
-
     try:
         for email in Email.get_unsent(now):
             clear = True
@@ -304,12 +282,14 @@ def send_queued_mail(test = False):
                        % (email.fr_addr, email.to_addr))
                 email.set_sent(rejected = True)
                 continue
-            sendmail(email)
+            sp = SparkPostEmailProvider()
+            sp.send_email(email.to_addr, email.fr_addr, email.subject, email.body)
+    except Exception as e:
+            sp = SparkPostEmailProvider()
+            sp.send_email('rkirmizi@gmail.com', email.fr_addr, email.subject, unicode(e))
 
     finally:
-        if not test:
-            session.quit()
-
+        pass
     # clear is true if anything was found and processed above
     if clear:
         Email.handler.clear_queue(now)
@@ -396,28 +376,8 @@ def suspicious_payment(user, link):
     return _fraud_email(body, kind)
 
 
-def send_html_email(to_addr, from_addr, subject, html,
-        subtype="html", attachments=None):
-    from r2.lib.filters import _force_utf8
-    if not attachments:
-        attachments = []
-
-    msg = MIMEMultipart()
-    msg.attach(MIMEText(_force_utf8(html), subtype))
-    msg["Subject"] = subject
-    msg["From"] = from_addr
-    msg["To"] = to_addr
-
-    for attachment in attachments:
-        part = MIMEBase('application', "octet-stream")
-        part.set_payload(attachment['contents'])
-        encoders.encode_base64(part)
-        part.add_header('Content-Disposition', 'attachment',
-            filename=attachment['name'])
-        msg.attach(part)
-
-    session = smtplib.SMTP(g.smtp_server)
-    session.sendmail(from_addr, to_addr, msg.as_string())
-    session.quit()
+def send_html_email(to_addr, from_addr, subject, html, subtype="html", attachments=None):
+    sp = SparkPostEmailProvider()
+    sp.send_email(to_addr, from_addr, subject, html)
 
 trylater_hooks.register_all()

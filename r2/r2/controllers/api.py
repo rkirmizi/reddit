@@ -2866,7 +2866,7 @@ class ApiController(RedditController):
                 public_description,
                 'public_description',
             )
-        
+
         if not sr and not c.user.can_create_subreddit:
             form.set_error(errors.CANT_CREATE_SR, "")
             c.errors.add(errors.CANT_CREATE_SR, field="")
@@ -2953,28 +2953,32 @@ class ApiController(RedditController):
             VNotInTimeout().run(action_name="createsubreddit", target=None)
 
             #sending kw is ok because it was sanitized above
-            sr = Subreddit._new(name = name, author_id = c.user._id,
-                                ip=request.ip, **kw)
+            try:
+                sr = Subreddit._new(name = name, author_id = c.user._id, ip=request.ip, **kw)
 
-            update_wiki_text(sr)
-            sr._commit()
 
-            hooks.get_hook("subreddit.new").call(subreddit=sr)
+                update_wiki_text(sr)
+                sr._commit()
 
-            Subreddit.subscribe_defaults(c.user)
-            sr.add_subscriber(c.user)
-            sr.add_moderator(c.user)
+                hooks.get_hook("subreddit.new").call(subreddit=sr)
 
-            if not sr.hide_contributors:
-                sr.add_contributor(c.user)
-            redir = sr.path + "about/edit/?created=true"
-            if not c.user_is_admin:
-                VRatelimit.ratelimit(rate_user=True,
-                                     rate_ip = True,
-                                     prefix = "create_reddit_")
+                Subreddit.subscribe_defaults(c.user)
+                sr.add_subscriber(c.user)
+                sr.add_moderator(c.user)
 
-            queries.new_subreddit(sr)
-            sr.update_search_index()
+                if not sr.hide_contributors:
+                    sr.add_contributor(c.user)
+                redir = sr.path + "about/edit/?created=true"
+                if not c.user_is_admin:
+                    VRatelimit.ratelimit(rate_user=True,
+                                         rate_ip = True,
+                                         prefix = "create_reddit_")
+
+                queries.new_subreddit(sr)
+                sr.update_search_index()
+            except:
+                form.set_error(errors.ADMIN_REQUIRED, "")
+                c.errors.add(errors.ADMIN_REQUIRED, field="")
 
         #editting an existing reddit
         elif sr.is_moderator_with_perms(c.user, 'config') or c.user_is_admin:

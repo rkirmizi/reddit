@@ -97,13 +97,13 @@
                  type="password" tabindex="${tabindex}"
                  placeholder="${_('verify password')}">
         </%call>
-        <%call expr="form_group('email', 'BAD_EMAIL', show_errors=register)">
+        <%call expr="form_group('email', 'BAD_EMAIL', 'NO_EMAIL', show_errors=register)">
           <label for="email_${op}" class="screenreader-only">
-            ${_('email')}: &nbsp;<i>(${_('optional')})
-          </i></label>
+            ${_('email')}
+          </label>
           <input value="" name="email" id="email_${op}" class="c-form-control"
                  type="text" tabindex="${tabindex}"
-                 placeholder="${_('email (optional)')}"
+                 placeholder="${_('email')}"
                  data-validate-url="/api/check_email.json"
                  data-validate-on="change blur">
         </%call>
