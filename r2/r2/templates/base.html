@@ -27,8 +27,8 @@
    from r2.lib import tracking
 %>
 <%namespace file="utils.html" import="js_setup, googleanalytics, googletagmanager, classes"/>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ar"
-      xml:lang="ar" dir="rtl">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="${c.lang}"
+      xml:lang="${c.lang}" dir="rtl">
   <head>
     <title>${self.Title()}</title>
     <meta name="keywords" content="${self.keywords()}" />
