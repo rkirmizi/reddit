@@ -1,6 +1,6 @@
 .subreddit-rule-item {
     margin-bottom: 10px;
-    margin-left: -10px;
+    margin-right: -10px;
     margin-top: 10px;
     padding: 10px;
 
@@ -9,7 +9,7 @@
     }
 
     .subreddit-rule-delete-confirmation {
-        text-align: right;
+        text-align: left;
     }
 }
 
@@ -29,7 +29,7 @@
 
     > button {
         margin-bottom: 5px;
-        margin-left: 5px;
+        margin-right: 5px;
 
         .mod-action-icon {
             padding: 5px 10px;
@@ -61,7 +61,7 @@
         .text-counter {
             color: @color-grey;
             position: absolute;
-            right: 0;
+            left: 0;
             top: 0;
 
             &.has-error {
@@ -71,7 +71,7 @@
     }
 
     .form-group-kind label {
-        margin-right: unit(@margin-large, px);
+        margin-left: unit(@margin-large, px);
     }
 }
 
@@ -87,7 +87,7 @@
     }
 
     .mod-action-icon {
-        margin-right: 5px;
+        margin-left: 5px;
         vertical-align: bottom;
     }
 }
@@ -95,7 +95,7 @@
 .error-fields {
     color: @color-warning-red;
     margin-top: unit(@margin-x-small, px);
-    text-align: right;
+    text-align: left;
 
     > .error {
         display: block;
@@ -127,11 +127,11 @@
     @icon-size: 52px;
 
     max-width: 700px;
-    padding-left: @icon-size + 20px;
-    padding-right: 20px;
+    padding-right: @icon-size + 20px;
+    padding-left: 20px;
     padding-top: 10px;
     position: relative;
-    
+
     &:before {
         .hdpi-bg-image(@1x: url(../modtools-page-icon-rules.png),
                        @2x: url(../modtools-page-icon-rules_2x.png));
@@ -139,7 +139,7 @@
         content: '';
         display: block;
         height: @icon-size;
-        left: 0;
+        right: 0;
         position: absolute;
         top: 0;
         width: @icon-size;

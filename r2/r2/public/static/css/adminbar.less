@@ -21,8 +21,8 @@
 #admin-bar {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
     z-index: 100;
 
     .show-button {
@@ -45,14 +45,14 @@
 
             &:before {
                 @size: 12px;
-                right: -@size;
+                left: -@size;
                 border-width: @size;
                 z-index: 101;
             }
 
             &:after {
                 @size: 18px;
-                right: -@size;
+                left: -@size;
                 border-width: @size;
                 border-top-color: gray;
                 z-index: 100;
@@ -97,7 +97,7 @@
         }
 
         .indicator {
-            margin-left: 14px;
+            margin-right: 14px;
         }
 
         .indicator .icon {
@@ -106,7 +106,7 @@
             height: 12px;
             border-radius: 2px;
             vertical-align: bottom;
-            margin-right: 5px;
+            margin-left: 5px;
             border: 1px solid black;
         }
 
@@ -147,9 +147,9 @@
         }
 
         .admin-off {
-            margin-left: 8px;
+            margin-right: 8px;
             padding: 0 4px;
-            background: fade(@admin-dark-color, 5%);
+            background: fade(@admin-dark-color, 95%);
             border: 1px solid fade(@admin-dark-color, 40%);
             border-radius: 3px;
             font-size: 11px;
@@ -163,7 +163,7 @@
             left: 0;
 
             & > span {
-                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
                 padding: 0 7px;
                 color: #369;
                 cursor: default;
@@ -221,8 +221,8 @@
 
         .timelines {
             position: absolute;
-            left: 20px;
-            right: 0;
+            right: 20px;
+            left: 0;
             top: 0;
             bottom: 0;
             cursor: -webkit-zoom-in;
@@ -244,12 +244,12 @@
             .elapsed {
                 position: absolute;
                 top: 0;
-                right: 2px;
+                left: 2px;
             }
 
             .events {
                 position: relative;
-                margin-right: 40px;
+                margin-left: 40px;
             }
 
             .event {
@@ -267,8 +267,8 @@
             }
 
             .event.out-of-bounds {
-                left: 0;
                 right: 0;
+                left: 0;
                 border: 1px solid #888;
                 background: #aaa;
             }

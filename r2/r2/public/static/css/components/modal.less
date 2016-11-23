@@ -18,9 +18,9 @@
     overflow: hidden;
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     z-index: @zindex-modal;
     -webkit-overflow-scrolling: touch;
 
@@ -72,9 +72,9 @@
 .modal-backdrop {
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     background-color: @modal-backdrop-bg;
     z-index: (@zindex-modal - 1);
     // Fade for backdrop
@@ -87,7 +87,7 @@
 .modal-header {
     position: absolute;
     top: 12px;
-    right: 12px;
+    left: 12px;
 }
 
 // Title text
@@ -122,8 +122,8 @@
 // Footer (for actions)
 .modal-footer {
     background: @modal-footer-bg;
-    border-bottom-left-radius: @modal-border-radius;
     border-bottom-right-radius: @modal-border-radius;
+    border-bottom-left-radius: @modal-border-radius;
     border-top: 1px solid @modal-footer-border-color;
 }
 

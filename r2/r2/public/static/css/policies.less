@@ -9,7 +9,7 @@
 .policy-page {
     position: relative;
     margin: 0 auto;
-    padding-left: 195px;
+    padding-right: 195px;
     width: 43em;
     font-size: 11pt;
 
@@ -39,7 +39,7 @@
             }
 
             strong {
-                margin-right: .5em;
+                margin-left: .5em;
             }
 
             em {
@@ -91,13 +91,13 @@
         }
 
         a.p-anchor {
-            float: left;
+            float: right;
             font-size: 10pt;
             font-weight: normal;
             color: #ddd;
-            margin-left: -3.5em;
+            margin-right: -3.5em;
             width: 1.5em;
-            text-align: right;
+            text-align: left;
             .transition(color, 1.5s);
         }
 
@@ -136,7 +136,7 @@
 
     .doc-info {
         position: absolute;
-        margin-left: -13em;
+        margin-right: -13em;
         width: 10em;
 
         h4 {
@@ -188,10 +188,10 @@
 
             .location {
                 position: absolute;
-                left: -11px;
+                right: -11px;
                 margin-top: 2px;
                 border: 5px solid transparent;
-                border-left-color: orangered;
+                border-right-color: orangered;
             }
         }
     }
@@ -199,7 +199,7 @@
 
 @media (max-width: 835px) {
     .policy-page {
-        padding-left: 0;
+        padding-right: 0;
 
         .doc-info.scroll-fixed-standin {
             display: none;

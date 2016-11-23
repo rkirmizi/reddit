@@ -34,7 +34,7 @@ p {
     margin: 0; padding: 0;
 }
 a {
-    color: #517191; 
+    color: #517191;
 }
 a:visited {
     color: #4F565B;
@@ -46,7 +46,7 @@ textarea {
 #preload {
     position: absolute;
     top: -1000px;
-    left: -1000px;
+    right: -1000px;
 }
 /*UI stuff*/
 .newbutton {
@@ -60,7 +60,7 @@ textarea {
         weight: bold;
     }
     text-decoration: none;
-    text-shadow: 0px 1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
+    text-shadow: 0px -1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
     background: none;
 
     &:active, &:hover, &[selected], &.expanded, &.active {
@@ -82,7 +82,7 @@ textarea {
     text-overflow: ellipsis;
     white-space: nowrap;
     width: auto;
-    text-shadow: 0px 1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
+    text-shadow: 0px -1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
     border: 1px solid #517191;
     @include box-shadow(inset 0px 1px 0px hsla(0,0%,100%,.75), 0px 1px 1px rgba(255,255,255,.6), 0px -1px 1px rgba(0,0,0,.1) );
 }
@@ -117,7 +117,7 @@ button.button {
    text-overflow: ellipsis;
    white-space: nowrap;
    width: auto;
-   text-shadow: 0px 1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
+   text-shadow: 0px -1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
    border: 1px solid #517191;
    @include box-shadow( "0px 1px 1px rgba(255,255,255,.6), 0px -1px 1px rgba(0,0,0,.1) ");
 }
@@ -128,39 +128,39 @@ button.button {
 
 .group_button {
     @include border-radius(0);
-    border-left: 1px solid hsl(211, 40%, 75%);
-    border-right: 1px solid hsl(211, 28%, 37%);
+    border-right: 1px solid hsl(211, 40%, 75%);
+    border-left: 1px solid hsl(211, 28%, 37%);
 }
 .group_button:first-child {
     -moz-border-radius-topleft: 6px;
     -moz-border-radius-bottomleft: 6px;
 
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 
-    -webkit-border-top-left-radius: 6px;
-    -webkit-border-bottom-left-radius: 6px;
-    border-left: 1px solid hsl(210, 28%, 44%);
+    -webkit-border-top-right-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    border-right: 1px solid hsl(210, 28%, 44%);
 }
 .group_button:last-child {
-    -webkit-border-top-left-radius: 0px; -moz-border-radius-topleft: 0px;
-    -webkit-border-bottom-left-radius: 0px; -moz-border-radius-bottomleft: 0px;
-    -webkit-border-top-right-radius: 6px; -moz-border-radius-topright: 6px;
-    -webkit-border-bottom-right-radius: 6px; -moz-border-radius-bottomright: 6px;
-    border-right: 1px solid hsl(210, 28%, 44%);
+    -webkit-border-top-right-radius: 0px; -moz-border-radius-topleft: 0px;
+    -webkit-border-bottom-right-radius: 0px; -moz-border-radius-bottomleft: 0px;
+    -webkit-border-top-left-radius: 6px; -moz-border-radius-topright: 6px;
+    -webkit-border-bottom-left-radius: 6px; -moz-border-radius-bottomright: 6px;
+    border-left: 1px solid hsl(210, 28%, 44%);
 }
 
 /*Options popups*/
 .options_link {
     font-size: x-small;
-    clear: left;
-    margin: 2px 0px 0px 10px;
+    clear: right;
+    margin: 2px 10px 0px 0px;
     display: inline-block;
     width: 30px; height: 30px;
     position: absolute;
     top: 35px;
-    right: 10px;
-    
+    left: 10px;
+
     @include sprite($static + 'options.png');
 
     &.active {
@@ -181,7 +181,7 @@ button.button {
         border-top:  1px solid hsl(210,35%,10%);
         display: none;
         @include box-shadow(inset 0px 3px 8px hsla(0,0%,0%,.8));
-        text-shadow: 0px -1px 0px hsla(0,0%,0%,.8);
+        text-shadow: 0px 1px 0px hsla(0,0%,0%,.8);
         text-align: center;
         height: 60px;
         overflow: hidden;
@@ -194,26 +194,26 @@ button.button {
             padding: 10px;
             width: 50px; height: 40px;
             text-align: center;
-            border-right:  1px solid hsl(210,35%,10%);
-            border-left:  1px solid hsl(210,35%,30%);
+            border-left:  1px solid hsl(210,35%,10%);
+            border-right:  1px solid hsl(210,35%,30%);
             @include transition(all 100ms ease-in);
 
             &:active {
                 background-color: hsl(210,35%,30%);
-                border-left: 1px solid hsl(210,35%,40%);
+                border-right: 1px solid hsl(210,35%,40%);
             }
 
             &:hover {
                 background-color: hsl(210,25%,20%);
                 @include box-shadow(inset 0px 3px 8px hsla(0,0%,0%,.8));
-                border-left: 1px solid hsl(210,35%,40%);
+                border-right: 1px solid hsl(210,35%,40%);
             }
 
             &:first-child {
-                border-left: none;
+                border-right: none;
             }
             &:last-child {
-                border-right: none;
+                border-left: none;
             }
         }
 
@@ -224,7 +224,7 @@ button.button {
 }
 .comment, .message { //For the funky styles on comments/messages
     .entry {
-        margin-right: 50px;
+        margin-left: 50px;
     }
     .child {
         .options_link {
@@ -232,13 +232,13 @@ button.button {
         }
     }
     .options_expando {
-        margin: 10px -50px 10px 0px; //Overwrite the link styles
+        margin: 10px 0px 10px -50px; //Overwrite the link styles
     }
 }
 .message {
 
     .options_expando {
-        margin: 25px -55px 10px -5px;
+        margin: 25px -5px 10px -55px;
     }
 }
 
@@ -247,8 +247,8 @@ button.button {
     width: 24px;
     height: 24px;
     margin: {
-        left: auto;
         right: auto;
+        left: auto;
         bottom: 5px;
     }
 }
@@ -314,7 +314,7 @@ button.button {
     @include vertical_gradient(#CEE3F8, #A8C4E0);
     border-bottom: 1px solid #7599BD; border-top: 1px solid #DCEAF7;
     @include box-sizing(border-box);
-    padding: 0px 10px; //Left and right padding
+    padding: 0px 10px; //right and left padding
     height: 40px;
     position: relative;
 
@@ -325,7 +325,7 @@ button.button {
 
     .left {
         position: absolute;
-        left:  0;
+        right:  0;
         bottom: 3px;
         overflow: hidden;
         max-height: 40px;
@@ -333,7 +333,7 @@ button.button {
     }
     .right {
         position: absolute;
-        right: 10px;
+        left: 10px;
         bottom: 1px;
         z-index: 3;
     }
@@ -361,7 +361,7 @@ button.button {
     z-index: 2;
 }
 body[orient="landscape"] > #topbar > h1 {
-    margin-left: -125px;
+    margin-right: -125px;
     width: 250px;
 }
 
@@ -369,7 +369,7 @@ body[orient="landscape"] > #topbar > h1 {
     padding-top: 8px; padding-bottom: 3px;
 }
 #topbar > .right > .button:first-child {
-	margin-right: 5px;
+	margin-left: 5px;
 }
 #topbar > .right > #mail {
     width: 30px;
@@ -424,13 +424,13 @@ body[orient="landscape"] > #topbar > h1 {
 }
 #top_menu {
     position: absolute;
-    right: 5px; top: 44px;
+    left: 5px; top: 44px;
     background-color: white;
     border: 1px solid rgba(27,47,94,.4); border-top: 0px;
-    -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomleft: 10px;
-    -webkit-border-bottom-right-radius: 10px; -moz-border-radius-bottomright: 10px;
-    border-bottom-left-radius: 10px; 
+    -webkit-border-bottom-right-radius: 10px; -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomright: 10px;
     border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     @include box-shadow(0px 0px 8px rgba(0,0,0,.3) );
     z-index: 5;
     display: none;
@@ -447,9 +447,9 @@ body[orient="landscape"] > #topbar > h1 {
     font-weight: bold;
 }
 
-.status { 
-    color: red; 
-    margin-left: 20px; 
+.status {
+    color: red;
+    margin-right: 20px;
 }
 
 /*Subtoolbar (eg hot)*/
@@ -485,8 +485,8 @@ body[orient="landscape"] > #topbar > h1 {
     @include vertical_gradient(#ddd, #aaa);
     @include border-radius(8px);
     border: 1px solid #aaa;
-    padding-top: 2px; 
-    padding-bottom: 1px; 
+    padding-top: 2px;
+    padding-bottom: 1px;
     @include box-shadow(0px 1px 1px rgba(255,255,255,.8));
 }
 /*Things*/
@@ -519,10 +519,10 @@ body[orient="landscape"] > #topbar > h1 {
 /*Links*/
 .link {
     min-height: 70px;
-    border-bottom: 1px solid #999; 
+    border-bottom: 1px solid #999;
     border-top: 1px solid #ddd;
     padding: 5px 5px;
-    padding-bottom: 0px; 
+    padding-bottom: 0px;
     @include box-sizing(border-box);
     background: rgba(255,255,255,.6);
     position: relative;
@@ -536,16 +536,16 @@ body[orient="landscape"] > #topbar > h1 {
 }
 /* Voting stuff */
 .link > .rank {
-    float: left;
+    float: right;
     margin-top: 17px;
     font-size: 12px;
     color: #aaa;
 }
 .link > .midcol {
-    float: left;
+    float: right;
     width: 25px;
-    margin: 0 10px 1px 0px;
-    padding-bottom: 5px; 
+    margin: 0 0px 1px 10px;
+    padding-bottom: 5px;
     position: relative;
 }
 
@@ -571,10 +571,10 @@ body[orient="landscape"] > #topbar > h1 {
 
 /* experimental */
 .link .rank { display: none; }
-.link .modcol { float: left; }
+.link .modcol { float: right; }
 
-.comment { 
-    position: relative; 
+.comment {
+    position: relative;
 }
 .comment > .entry > .tagline .score {
     display:none;
@@ -598,10 +598,10 @@ body[orient="landscape"] > #topbar > h1 {
 }
 /*Image*/
 .link .thumbnail {
-    float: right; 
-    margin: 0 0 5px 5px;
+    float: left;
+    margin: 0 5px 5px 0;
     overflow: hidden;
-    max-height: 50px; 
+    max-height: 50px;
 }
 
 .link .thumbnail img {
@@ -611,11 +611,11 @@ body[orient="landscape"] > #topbar > h1 {
 
 /* Entry*/
 
-.link .entry { 
-    margin: 0px 50px 3px 0px; 
+.link .entry {
+    margin: 0px 0px 3px 50px;
 }
 
-.link a { 
+.link a {
     text-decoration: none;
     color: #517191;
     color: #369;
@@ -623,14 +623,14 @@ body[orient="landscape"] > #topbar > h1 {
 
 .link  p.title {
     margin: 0; padding: 0;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     word-wrap: break-word;
     font-size: .8em;
     font-weight: bold;
 }
 .link  p.title > a {
     text-overflow: ellipsis; overflow: hidden;
-    color: #25A; 
+    color: #25A;
 }
 .link.stickied p.title > a {
     color: #228822;
@@ -640,7 +640,7 @@ body[orient="landscape"] > #topbar > h1 {
     color: hsl(0,0%,45%);
     font-size: 9px;
     margin: {
-        left: 5px;
+        right: 5px;
     }
 
     a, a:hover {
@@ -652,18 +652,18 @@ body[orient="landscape"] > #topbar > h1 {
 .link .tagline {
     margin: 2px 0 5px;
     padding: 0;
-    padding-top: 2px; 
+    padding-top: 2px;
     font-size: 10px;
     color: #333;
 }
 
-.link .tagline > span { 
-    margin-right: 2px;
+.link .tagline > span {
+    margin-left: 2px;
 }
 
 
 .link .tagline a {
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 .link .tagline .stickied-tagline {
@@ -672,10 +672,10 @@ body[orient="landscape"] > #topbar > h1 {
 
 /*Expando*/
 .link  .expando-button {
-    float: left;
+    float: right;
     display: block;
     height: auto; line-height: inherit;
-    margin: 3px 10px 2px 0;
+    margin: 3px 0 2px 10px;
     width: 30px;
     height: 30px;
     @include sprite($static + 'selftext.png');
@@ -687,7 +687,7 @@ body[orient="landscape"] > #topbar > h1 {
 
 .link > .expando {
     clear: both;
-    margin: 5px 0; 
+    margin: 5px 0;
     margin-bottom: 30px;
     border: 1px solid #999;
     background: #ddd;
@@ -696,15 +696,15 @@ body[orient="landscape"] > #topbar > h1 {
     font-size: 11px;
 }
 
-.link > .thing_options { 
-    font-size: x-small; 
+.link > .thing_options {
+    font-size: x-small;
     margin: none;
 	 display: block;
-	 float: left;
-	 clear: left;
-	 margin: 2px 0px 0px 10px;
+	 float: right;
+	 clear: right;
+	 margin: 2px 10px 0px 0px;
 }
-.link > .thing_options a{ 
+.link > .thing_options a{
 }
 
 .nsfw-warning {
@@ -713,17 +713,17 @@ body[orient="landscape"] > #topbar > h1 {
     text-decoration: none;
     font-weight: normal;
     font-size: 9px;
-    margin-left: 5px;
+    margin-right: 5px;
     padding: 0 2px;
     border: 1px solid #d27979 !important;
 }
 
 /* Comment count */
 .commentcount {
-    float: right;
+    float: left;
     margin: 5px;
     width: 45px;
-    text-align: right;
+    text-align: left;
 }
 .commentcount > .comments {
     border: 8px solid transparent;
@@ -732,7 +732,7 @@ body[orient="landscape"] > #topbar > h1 {
     color: white; font-family: inherit; font-size: 12px;
     font-weight: bold;
     text-decoration: none;
-    text-shadow: 0px 1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
+    text-shadow: 0px -1px 1px rgba(255,255,255,.1), 0px -1px 1px rgba(0,0,0,.4);
 
     &:active, &:hover, &[selected], &.preloaded {
         @include border-image(url($static + 'border-button-active.png') 8 fill);
@@ -773,11 +773,11 @@ body[orient="landscape"] > #topbar > h1 {
 }
 .cancel,
 .save {
-    float: right;
+    float: left;
     padding: 0 5px !important;
 }
 .save {
-	margin-left: 5px;
+	margin-right: 5px;
 }
 /* Errors */
 .error {
@@ -792,7 +792,7 @@ body[orient="landscape"] > #topbar > h1 {
 }
 
 .help-toggle {
-    float: left;
+    float: right;
     margin: {
         top: 3px;
     }
@@ -813,14 +813,14 @@ padding: 5px;
     background: rgb(217,217,217);
 }
 .markhelp th:first-child {
-    -webkit-border-top-left-radius: 8px; 
+    -webkit-border-top-right-radius: 8px;
     -moz-border-radius-topleft: 8px;
-    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 .markhelp th:last-child {
-    -webkit-border-top-right-radius: 8px; 
+    -webkit-border-top-left-radius: 8px;
     -moz-border-radius-topright: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
 }
 .markhelp tr:nth-child(odd) td {
     background: rgba(0,0,100,.1);
@@ -830,14 +830,14 @@ padding: 5px;
     padding: 5px;
 }
 .markhelp tr:last-child td:first-child {
-    -webkit-border-bottom-left-radius: 8px; 
+    -webkit-border-bottom-right-radius: 8px;
     -moz-border-radius-bottomleft: 8px;
-    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .markhelp tr:last-child td:last-child {
-    -webkit-border-bottom-right-radius: 8px; 
+    -webkit-border-bottom-left-radius: 8px;
     -moz-border-radius-bottomright: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 /*Cloned comment reply */
 .usertext textarea {
@@ -860,27 +860,27 @@ padding: 5px;
     @include border-radius(8px)
 }
 .comment > .midcol {
-    float: left;
+    float: right;
     margin: 7px;
     overflow: hidden;
 }
 .comment > .entry > .tagline {
     font-size: 11px;
-    padding-bottom: 2px; 
+    padding-bottom: 2px;
 }
 .comment > .admin_takedown {
     background-color: #F7F7F7;
     color: #888888;
-    
+
     a:link {
         color: #326699;
     }
 }
 
-.child .comment { 
-    margin: 4px; 
+.child .comment {
+    margin: 4px;
     margin-top: 0px;
-    -webkit-border-top-right-radius: 0px;
+    -webkit-border-top-left-radius: 0px;
     -moz-border-radius-topright: 0px;
 }
 
@@ -895,14 +895,14 @@ padding: 5px;
     display: none;
 }
 
-.comment.collapsed { 
+.comment.collapsed {
     font-style: italcs;
 }
 
-.comment.collapsed .tagline { 
-    margin-left: 20px; 
+.comment.collapsed .tagline {
+    margin-right: 20px;
     font-style: italcs;
-    color: #AAA; 
+    color: #AAA;
 }
 
 
@@ -910,7 +910,7 @@ padding: 5px;
 .gilded-icon {
     position: relative;
     display: inline-block;
-    margin: 0 0 -15px 8px;
+    margin: 0 8px -15px 0;
     top: -8px;
     color: #99895F;
     font-size: .9em;
@@ -924,7 +924,7 @@ padding: 5px;
     background-repeat: no-repeat;
     height: 14px;
     width: 13px;
-    margin-right: 2px;
+    margin-left: 2px;
     vertical-align: -3px;
 }
 
@@ -940,14 +940,14 @@ body.post-under-6h-old .gilded-icon {
 /** messages and inbox */
 .message {
     background: white;
-    position: relative; 
+    position: relative;
     border: 1px solid rgb(217,217,217);
     margin: 10px;
     @include border-radius(8px);
     padding: 5px;
 }
 .message > .midcol {
-    float: left;
+    float: right;
     margin: 10px;
     overflow: hidden;
 }
@@ -959,7 +959,7 @@ body.post-under-6h-old .gilded-icon {
 .message .correspondent {
     @include vertical_gradient(hsl(210, 75%, 89%), hsl(209, 47%, 74%));
     /* TODO */
-    margin-right: 10px;
+    margin-left: 10px;
     padding: 2px 5px;
     @include border-radius(15px);
 }
@@ -967,8 +967,8 @@ body.post-under-6h-old .gilded-icon {
     text-decoration: none;
 }
 
-.message .message .subject { 
-    display: none; 
+.message .message .subject {
+    display: none;
 }
 
 
@@ -981,7 +981,7 @@ body.post-under-6h-old .gilded-icon {
     word-wrap: break-word;
 }
 .message > .metabuttons {
-    float: right;
+    float: left;
     margin: 10px;
 }
 
@@ -989,59 +989,59 @@ body.post-under-6h-old .gilded-icon {
     font-weight: bold;
 	 font-size: 13px;
 	 border-bottom: 1px solid rgb(217,217,217);
-	 padding: 5px; overflow: hidden; 
+	 padding: 5px; overflow: hidden;
 }
 
 .message .subject a {
-    margin-left: 5px;
+    margin-right: 5px;
 }
 .message .subject .correspondent a {
-    margin-left: 0;
+    margin-right: 0;
 }
 
 /* subreddit */
 
-.link .subreddit { 
+.link .subreddit {
     background-color: transparent;
-    margin: 0px; 
+    margin: 0px;
 }
 
-.subreddit { 
+.subreddit {
     background-color: white;
     @include border-radius(5px);
-    margin: 5px; 
+    margin: 5px;
 }
 
-.subreddit p.title { 
+.subreddit p.title {
     display: block;
-    margin-left: 35px;
-    margin-right: 30px; 
+    margin-right: 35px;
+    margin-left: 30px;
 }
 
 .subreddit  a.title {
     display: block;
     margin: 0; padding: 0;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     word-wrap: break-word;
     font-size: small;
     font-weight: bold;
     text-overflow: ellipsis; overflow: hidden;
-    color: #25A; 
+    color: #25A;
     text-decoration: none;
 }
-.subreddit .title a.domain { 
+.subreddit .title a.domain {
     font-size: x-small;
-    color: #AAA; 
-    font-style: italic; 
-    display: block; 
+    color: #AAA;
+    font-style: italic;
+    display: block;
 }
 
-.subreddit .tagline { 
+.subreddit .tagline {
     font-size: x-small;
     color: #666;
 }
 
-.subreddit .button.active { 
+.subreddit .button.active {
     @include vertical_gradient(#BFD0E0, #80A2C4);
 }
 
@@ -1059,36 +1059,36 @@ body.post-under-6h-old .gilded-icon {
 }
 
 .subreddit .midcol .button.add,
-.subreddit .midcol .button.remove { 
+.subreddit .midcol .button.remove {
     font-family: courier;
-    font-size: small; 
+    font-size: small;
 }
 
-.subreddit .midcol { 
-    float: left; 
+.subreddit .midcol {
+    float: right;
 }
 
-.subreddit .midcol .button { 
+.subreddit .midcol .button {
     display: none;
-    margin: 4px; 
+    margin: 4px;
 }
-.subreddit .midcol .button.active { 
+.subreddit .midcol .button.active {
     display: block;
-    width: auto; 
+    width: auto;
     height: auto;
-    padding: 0px 9px; 
+    padding: 0px 9px;
 }
-.subreddit .expando-button { 
-    float: right; 
-    height: 100%; 
+.subreddit .expando-button {
+    float: left;
+    height: 100%;
 }
 
-.subreddit .description { 
+.subreddit .description {
     border-top: 1px solid #AAA;
     margin-top: 2px;
-    padding-top: 2px; 
-    margin-left: 0px;
-    padding-left: 10px; 
+    padding-top: 2px;
+    margin-right: 0px;
+    padding-right: 10px;
 }
 
 /* Compose */
@@ -1097,7 +1097,7 @@ body.post-under-6h-old .gilded-icon {
 	border: 1px solid rgb(217,217,217); border-top: 0px;
 	margin: 10px; margin-top: 0;
 	padding: 10px;
-	-webkit-border-bottom-left-radius: 8px; -webkit-border-bottom-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px; -webkit-border-bottom-left-radius: 8px;
     -moz-border-radius-bottomleft: 8px; -moz-border-radius-bottomright: 8px;
 }
 #compose-message label {
@@ -1123,16 +1123,16 @@ body.post-under-6h-old .gilded-icon {
 	 word-wrap: break-word;
 }
 .comment > .entry .usertext-edit {
-    margin-left: 42px;
+    margin-right: 42px;
 }
 .comment > .metabuttons {
-    float: right;
+    float: left;
     margin: 10px;
 }
 /*Child comment specific styles*/
 /*Reduce the bottom margin on the last child comment in a thread, to make viewing easier.*/
 .child .comment {
-    margin-right: -1px; 
+    margin-left: -1px;
 }
 .child .comment:last-child {
     margin-bottom: 2px;
@@ -1140,7 +1140,7 @@ body.post-under-6h-old .gilded-icon {
 
 .comment > .morecomments {
     margin: 5px;
-    text-align: right;
+    text-align: left;
 }
 .comment > .morecomments > a {
 
@@ -1172,7 +1172,7 @@ body.post-under-6h-old .gilded-icon {
 @-webkit-keyframes rotateThis {
   from {-webkit-transform:scale(0.75) rotate(0deg);}
   to {-webkit-transform:scale(0.75) rotate(360deg);}
-} 
+}
 .loading { width: 100%; background-color: white; text-align: center; }
 .loading img {
 	-webkit-animation-name: rotateThis;
@@ -1195,11 +1195,11 @@ body.post-under-6h-old .gilded-icon {
     background: white;
     border: 1px solid rgb(217,217,217);
     margin: 10px;
-    -webkit-border-bottom-left-radius: 8px; -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px; -webkit-border-bottom-left-radius: 8px;
     -moz-border-radius-bottomleft: 8px; -moz-border-radius-bottomright: 8px;
     max-width: 350px;
+    margin-right: auto;
     margin-left: auto;
-    margin-right: auto; 
 }
 #login_login > div, #login_reg > div {
 	padding: 10px;
@@ -1232,28 +1232,28 @@ body.post-under-6h-old .gilded-icon {
 }
 
 /* takdown page (sigh) */
-.infobar.red img { 
-    float: left;
+.infobar.red img {
+    float: right;
 }
 
-.infobar.red { 
+.infobar.red {
     border: 1px solid red;
     padding: 10px;
     margin: 5px;
     background-color: #FFA177;
 }
 
-.clear { 
-    clear: both; 
+.clear {
+    clear: both;
 }
-.clearleft { 
-    clear: left; 
+.clearleft {
+    clear: right;
 }
 
 .cover {
     position: fixed;
-    left: 0px;
-    top: 0px; 
+    right: 0px;
+    top: 0px;
     width: 100%;
     height: 100%;
     background-color: gray;
@@ -1264,23 +1264,23 @@ body.post-under-6h-old .gilded-icon {
 .popup {
     position: absolute;
     top: 75px;
-    left: 0;
+    right: 0;
     @include border-radius(30px);
     background-color: white;
-    text-align: left;
+    text-align: right;
     z-index: 1001;
     padding: 10px;
-    border-color: #B2B2B2 black black #B2B2B2;
+    border-color: #B2B2B2 #B2B2B2 black black;
     border-style: solid;
     border-width: 1px;
-    margin-left: auto;
     margin-right: auto;
-    max-width: 350px; 
+    margin-left: auto;
+    max-width: 350px;
 }
 
 .popup h1 {
     text-align: center;
-    font-size: large; 
+    font-size: large;
     font-weight: normal;
     color: orangered;
 }
@@ -1290,7 +1290,7 @@ body.post-under-6h-old .gilded-icon {
 	background: white;
 	border: 1px solid hsl(0, 0%, 85%);
 	margin: 10px;
-	-webkit-border-bottom-left-radius: 8px;	-webkit-border-bottom-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;	-webkit-border-bottom-left-radius: 8px;
     -moz-border-radius-bottomleft: 8px; -moz-border-radius-bottomright: 8px;
 }
 #newlink .save {
@@ -1303,7 +1303,7 @@ body.post-under-6h-old .gilded-icon {
 	-webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
 	margin: 10px; padding: 0;
-	
+
 }
 #newlink .tabmenu li {
     display: block;
@@ -1323,13 +1323,13 @@ body.post-under-6h-old .gilded-icon {
 	font-weight: bold;
 }
 #newlink .tabmenu li:first-child {
-	-webkit-border-bottom-left-radius: 5px;	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;	-webkit-border-top-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px; -moz-border-radius-topleft: 5px;
 }
 #newlink .tabmenu li:last-child {
-	-webkit-border-bottom-right-radius: 5px; -webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px; -webkit-border-top-left-radius: 5px;
     -moz-border-radius-bottomright: 5px; -moz-border-radius-topright: 5px;
-	border-left-color: hsl(0, 0%, 80%);
+	border-right-color: hsl(0, 0%, 80%);
 }
 #newlink li.selected {
     @include vertical_gradient(hsl(0, 0%, 50%), hsl(0, 0%, 70%));
@@ -1369,11 +1369,11 @@ body.post-under-6h-old .gilded-icon {
 }
 /* Individual sections */
 #url-field .button {
-	float: right;
+	float: left;
 	margin-top: 5px;
 }
 #url-field .title-status {
-	background: hsl(0, 0%, 90%);
+	background: hsl(0, 100%, 90%);
 	border: 1px solid hsl(0, 0%, 50%);
 	padding: 2px 4px;
 	margin-top: 5px;
@@ -1381,7 +1381,7 @@ body.post-under-6h-old .gilded-icon {
 }
 
 #suggested-reddits ul {
-    background: hsl(0, 0%, 90%);
+    background: hsl(0, 100%, 90%);
     border: 1px solid hsl(0, 0%, 50%);
     padding: 8px;
     @include border-radius(8px);
@@ -1404,17 +1404,17 @@ body.post-under-6h-old .gilded-icon {
 #sr-autocomplete-area {
 	position: relative;
 	z-index: 50;
-	
+
 }
 #sr-drop-down {
 	position: absolute;
     @include vertical_gradient(hsl(0, 0%, 90%), hsl(0, 0%, 75%));
 	border: 1px solid hsl(0,0%,50%);
-	-webkit-border-bottom-left-radius: 5px;	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;	-webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;
 	border-top: 0px;
 	display: none;
-	left: 5px;
+	right: 5px;
 	margin: 0px;
 	padding: 0px;
 	position: absolute;
@@ -1431,8 +1431,8 @@ body.post-under-6h-old .gilded-icon {
 	-webkit-text-stroke: 1px solid hsl(210, 28%, 44%);
 }
 #sr-drop-down li:last-child {
-	-webkit-border-bottom-left-radius: 5px;	-webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;	
+	-webkit-border-bottom-right-radius: 5px;	-webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;
 }
 
 /* markdown */
@@ -1450,39 +1450,39 @@ body.post-under-6h-old .gilded-icon {
 .md ol { list-style: decimal outside }
 .md pre { margin: 10px; }
 .md blockquote, .help blockquote {
-    border-left: 2px solid #369;
-    padding-left: 4px; 
+    border-right: 2px solid #369;
+    padding-right: 4px;
     margin: 5px;
-    margin-right: 15px;
+    margin-left: 15px;
 }
 .md td, .md th { border: 1px solid #EEE; padding: 1px 3px; }
 .md th { font-weight: bold;  }
 .md table { margin: 5px 10px;  }
-.md center { text-align: left;  }
+.md center { text-align: right;  }
 
-.tryme { 
+.tryme {
     width: 100%;
     max-width: 280px;
     padding: 10px;
     background-color: white;
     @include border-radius(10px);
-    margin: 10px auto; 
+    margin: 10px auto;
 }
 
-.tryme p { 
-    margin: 10px; 
+.tryme p {
+    margin: 10px;
     font-size: small;
 }
 
-.tryme .choices .button { 
+.tryme .choices .button {
     width: 260px;
     display: block;
     text-align: center;
-    margin: 10px; 
+    margin: 10px;
 }
 
 .deepthread {
-    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .morecomments a,
@@ -1491,11 +1491,11 @@ body.post-under-6h-old .gilded-icon {
     color: white
 }
 
-.morechildren { 
+.morechildren {
     margin: 5px 10px;
 }
 
-.morechildren a { 
+.morechildren a {
     display: block;
     text-align: center;
     max-width: 350px;
@@ -1503,12 +1503,12 @@ body.post-under-6h-old .gilded-icon {
     color: white !important;
 }
 
-a.author { margin-right: 0.5em; }
- 
+a.author { margin-left: 0.5em; }
+
 .flair, .linkflair {
     margin: {
         top: 2px;
-        right: 0.5em;
+        left: 0.5em;
     }
     padding: 0px 2px;
     display: inline-block;
@@ -1516,7 +1516,7 @@ a.author { margin-right: 0.5em; }
     color: hsl(0, 0%, 33%);
     border: 1px solid hsl(0, 0%, 87%);
     font-size: 9px;
-    
+
     @include border-radius(2px);
     @include box-shadow(inset 0px 1px 0px hsla(0,0%,100%,.9));
 }
@@ -1537,7 +1537,7 @@ a.author { margin-right: 0.5em; }
     padding: 20px;
     width: 100%;
     z-index: 1000;
-    
+
     a {
         text-decoration: none;
     }

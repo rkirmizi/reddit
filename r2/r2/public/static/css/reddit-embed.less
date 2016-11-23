@@ -44,21 +44,21 @@ p {
     font-size: 12px;
     height: (@snoo-height + (@snoo-padding * 2));
     padding: 20px;
-    padding-right: (@snoo-width + (@snoo-padding * 2));
+    padding-left: (@snoo-width + (@snoo-padding * 2));
     position: relative;
     width: 100%;
 
     p {
-        display: table-cell; 
+        display: table-cell;
         margin: 0;
         padding: 0;
-        vertical-align: middle; 
+        vertical-align: middle;
     }
 
     .reddit-embed-footer-img {
         display: block;
         position: absolute;
-        right: @snoo-padding;
+        left: @snoo-padding;
         bottom: @snoo-padding;
         width: @snoo-width;
         height: @snoo-height;
@@ -74,7 +74,7 @@ p {
     padding: 0;
 
     .reddit-embed-list {
-        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
@@ -100,7 +100,7 @@ p {
 .reddit-embed-comment-meta {
     font-size: 12px;
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 0;
 }
 
@@ -142,7 +142,7 @@ p {
         &:before {
             content:'';
             position: absolute;
-            left: 0;
+            right: 0;
             bottom: 0;
             width: 100%;
             height: 40px;

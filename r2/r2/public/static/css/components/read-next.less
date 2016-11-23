@@ -1,6 +1,6 @@
 @read-next-color-background: @color-white;
 @read-next-color-header: #EFF7FF;
-@read-next-color-button-background: lighten(@color-ui-blue, 5%);
+@read-next-color-button-background: lighten(@color-ui-blue, 95%);
 @read-next-color-text: @color-semi-black;
 @read-next-color-text-light: @color-dark-grey;
 @read-next-height: 100px;
@@ -49,14 +49,14 @@
     background-color: @read-next-color-header;
     border-bottom: 1px solid darken(@read-next-color-header, 5%);
     color: @read-next-color-text-light;
-    padding-left: @margin-small * 1px;
     padding-right: @margin-small * 1px;
+    padding-left: @margin-small * 1px;
     padding-top: @margin-x-small * 1px;
   }
 
   .read-next-header-title {
     .read-next-font-size(@read-next-font-base, @read-next-line-large);
-    margin-left: (@read-next-line-base + @margin-x-small) * 2px;
+    margin-right: (@read-next-line-base + @margin-x-small) * 2px;
     position: relative;
     // magic number, but it looks better ;_;
     top: -2px;
@@ -77,18 +77,18 @@
   }
 
   .read-next-nav-right {
-    right: @margin-x-small * 1px;
+    left: @margin-x-small * 1px;
 
     > * {
-      margin-left: @margin-x-small * 1px;
+      margin-right: @margin-x-small * 1px;
     }
   }
 
   .read-next-nav-left {
-    left: @margin-x-small * 1px;
-     
+    right: @margin-x-small * 1px;
+
     > * {
-      margin-right: @margin-x-small * 1px;
+      margin-left: @margin-x-small * 1px;
     }
   }
 
@@ -125,7 +125,7 @@
 
   .read-next-link {
     display: none;
-    float: left;
+    float: right;
     height: @read-next-link-height;
     overflow: hidden;
     width: 100%;
@@ -136,11 +136,11 @@
 
     .read-next-thumbnail {
       display: block;
-      float: left;
+      float: right;
       height: @read-next-thumbnail-size;
-      margin-right: @margin-x-small * 1px;
+      margin-left: @margin-x-small * 1px;
       // magic number, but it just looks better
-      margin-top: 3px; 
+      margin-top: 3px;
       width: @read-next-thumbnail-size;
 
       img {

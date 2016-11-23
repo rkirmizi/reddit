@@ -33,7 +33,7 @@
   border-style: solid;
   border-width: 1px;
   margin-bottom: @infobar-padding;
-  margin-left: 0;
+  margin-right: 0;
   margin-top: unit(@margin-x-small, px);
   overflow: auto;
   padding: @infobar-padding;
@@ -45,7 +45,7 @@
 
   &.with-icon {
     min-height: @infobar-icon-size;
-    padding-left: @infobar-padding + @infobar-icon-size;
+    padding-right: @infobar-padding + @infobar-icon-size;
 
     &:before {
       content: '';
@@ -54,7 +54,7 @@
       height: 100%;
       background-color: @infobar-color-border;
       position: absolute;
-      left: 0;
+      right: 0;
       top: 0;
       background-position: center;
     }
@@ -93,7 +93,7 @@
     @1x: url('../infobar-icon-banhammer.png');
     @2x: url('../infobar-icon-banhammer_2x.png');
     @2x-bg-size: 20px 27px;
-    .hdpi-bg-image(@1x: @1x, @2x: @2x, @2x-bg-size);   
+    .hdpi-bg-image(@1x: @1x, @2x: @2x, @2x-bg-size);
     background-color: @timeout-infobar-color-border;
   }
 }

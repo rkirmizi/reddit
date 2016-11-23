@@ -108,8 +108,8 @@
   }
 
   * {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
   }
 
   tr,
@@ -131,7 +131,7 @@
   }
 
   blockquote {
-    border-left: 2px solid @markdown-color-border-heavy;
+    border-right: 2px solid @markdown-color-border-heavy;
   }
 
   code,
@@ -168,14 +168,14 @@
   // can't rely on &:extend here, doesn't apply the align rules
   td, th {
     border: 1px solid @markdown-color-border-light;
-    text-align: left;
+    text-align: right;
 
     &[align=center] {
       text-align: center;
     }
 
     &[align=right] {
-      text-align: right;
+      text-align: left;
     }
   }
 
@@ -194,7 +194,7 @@
   blockquote {
     // -2 to compensate for border
     padding: 0 ((@margin-small - 2) * 1px);
-    margin-left: (@margin-x-small * 1px);
+    margin-right: (@margin-x-small * 1px);
   }
 
   code {
@@ -207,7 +207,7 @@
   }
 
   .-lists {
-    padding-left: (@margin-xxx-large * 1px);
+    padding-right: (@margin-xxx-large * 1px);
   }
 
   sup {
@@ -405,7 +405,7 @@ code {
   li {
     > :first-child {
       margin-top: 0;
-      
+
       &:last-child {
         margin-bottom: 0;
       }

@@ -10,7 +10,7 @@ a {
   color: #369;
   }
 
-p { 
+p {
   margin: 0px;
   padding: 0px;
   }
@@ -34,7 +34,7 @@ ul {
        }
 
 .byline {
-	margin: 0px 0px .5em 2px;
+	margin: 0px 2px .5em 0px;
         display: inline;
         font-size: small;
         }
@@ -57,25 +57,25 @@ ul {
 }
 
 .comment .child {
-    border-left: 1px dotted #DDF;
+    border-right: 1px dotted #DDF;
 }
 
 .child {
-       padding-left: 1em;
-       margin-left: 1em;
-       border-left: 1px dotted #DDF;
+       padding-right: 1em;
+       margin-right: 1em;
+       border-right: 1px dotted #DDF;
        }
 
 .headerbar {
            background-color: lightgrey;
-	   margin: 5px 0px 5px 2px;
+	   margin: 5px 2px 5px 0px;
 }
 
 .headerbar span {
            background-color: white;
            color: gray;
            font-weight: bold;
-           margin-left: 15px;
+           margin-right: 15px;
            padding: 0px 3px;
 }
 
@@ -83,12 +83,12 @@ ul {
        margin: 0px .5em 0px .5em;
 }
 
-.error { 
-       color: red; 
+.error {
+       color: red;
        margin: 5px;
        }
 
-.nextprev { 
+.nextprev {
           margin: 10px;
           }
 
@@ -99,9 +99,9 @@ ul {
 
 .tabmenu li {
             display: inline;
-	    margin-right: .25em;
-	    padding-left: .25em;
-            border-left: thin solid #000;
+	    margin-left: .25em;
+	    padding-right: .25em;
+            border-right: thin solid #000;
             }
 
 .redditname {
@@ -115,16 +115,16 @@ ul {
 
 .pagename {
           font-weight: bold;
-          margin-right: 1ex;
+          margin-left: 1ex;
           color: black;
           }
 
 .or {
-    border-left:thin solid #000000;
     border-right:thin solid #000000;
+    border-left:thin solid #000000;
     padding: 0px .25em 0px .25em;
     }
- 
+
 #header {
         background-color: #CEE3F8;
         }
@@ -134,7 +134,7 @@ ul {
                      }
 
 #header img {
-            margin-right: 3px;
+            margin-left: 3px;
             }
 
 /* markdown */
@@ -149,5 +149,5 @@ ul {
 .md pre { margin: 10px; }
 .flair, .linkflair { color: #545454; background-color: #F5F5F5; border: 1px solid #DEDEDE; }
 .linkflair { display: inline-block; font-size: small; max-width: 10em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-a.author, .flair, .linkflair { margin-right: 0.5em }
+a.author, .flair, .linkflair { margin-left: 0.5em }
 .author.submitter { color: white; background-color: #5F99CF; padding: 0 4px; }

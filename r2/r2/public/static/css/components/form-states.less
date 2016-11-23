@@ -5,11 +5,11 @@
 .c-has-error {
 
     .c-tooltip.right .tooltip-arrow {
-        border-right-color: @tooltip-danger-arrow-color;
+        border-left-color: @tooltip-danger-arrow-color;
     }
 
     .c-tooltip.left .tooltip-arrow {
-        border-left-color: @tooltip-danger-arrow-color;
+        border-right-color: @tooltip-danger-arrow-color;
     }
 
     .c-tooltip.top-right .tooltip-arrow,
@@ -30,11 +30,11 @@
 .c-has-success {
 
     .c-tooltip.right .tooltip-arrow {
-        border-right-color: @tooltip-success-arrow-color;
+        border-left-color: @tooltip-success-arrow-color;
     }
 
     .c-tooltip.left .tooltip-arrow {
-        border-left-color: @tooltip-success-arrow-color;
+        border-right-color: @tooltip-success-arrow-color;
     }
 
     .c-tooltip.top-right .tooltip-arrow,
@@ -56,11 +56,11 @@
     width: calc(100% + 25px);
     width: 110%;
     position: absolute;
-    left: 100%;
+    right: 100%;
     top: 0;
 
     &.inside-input {
-        margin-left: -30px;
+        margin-right: -30px;
     }
 }
 
@@ -68,7 +68,7 @@
     @vertical-space: ((@input-height-base - 20px) / 2);
     display: none;
     position: absolute;
-    left: 5px;
+    right: 5px;
     top: @vertical-space;
     height: 20px;
     width: 20px;
@@ -85,7 +85,7 @@
         .animation(spin .75s linear infinite);
         border: 2px solid @throbber-color;
         border-bottom-color: transparent;
-        border-left-color: transparent;
+        border-right-color: transparent;
         border-radius: 100%;
     }
 }
@@ -106,14 +106,14 @@
             }
 
             &.right .tooltip-arrow {
-                border-right-color: @tooltip-danger-hover-bg
-            }
-
-            &.left .tooltip-arrow {
                 border-left-color: @tooltip-danger-hover-bg
             }
 
-            &.top-right .tooltip-arrow,
+            &.left .tooltip-arrow {
+                border-right-color: @tooltip-danger-hover-bg
+            }
+
+            &.top-left .tooltip-arrow,
             &.top .tooltip-arrow {
                 border-top-color: @tooltip-danger-hover-bg
             }
@@ -133,9 +133,9 @@
 
 .c-form-throbber {
     display: none;
-    float: right;
+    float: left;
     padding: 5px 0;
-    margin-right: -25px;
+    margin-left: -25px;
 
     &:after {
         content: '';
